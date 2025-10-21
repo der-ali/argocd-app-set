@@ -12,7 +12,7 @@ metadata:
     nginx.ingress.kubernetes.io/proxy-send-timeout: "120000"
 spec:
   rules:
-    - host: k8s-api.dev-cluster.example.com
+    - host: k8s-api-ext.dev-cluster.example.com
       http:
         paths:
           - backend:
@@ -24,4 +24,4 @@ spec:
             pathType: Prefix
   tls:
     - hosts:
-        - k8s-api.dev-cluster.example.com
+        - k8s-api-ext.dev-cluster.example.com
