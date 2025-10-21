@@ -23,7 +23,6 @@ spec:
           targetRevision: '{{chartVersion}}'
           atomic: true
           helm:
-            releaseName: ic-nginx
             valueFiles:
               - $values/apps/nginx/base/values.yaml
               - $values/apps/nginx/clusters/{{cluster}}/values.yaml
