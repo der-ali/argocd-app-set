@@ -8,6 +8,7 @@ spec:
         elements:
           - cluster: dev-cluster
             url: https://192.168.101.240:8443
+            chartVersion: 4.12.4
   template:
     metadata:
       name: 'ic-nginx-{{cluster}}'
@@ -19,8 +20,10 @@ spec:
           ref: values
         - repoURL: https://kubernetes.github.io/ingress-nginx
           chart: ingress-nginx
-          targetRevision: 4.12.4
+          targetRevision: '{{chartVersion}}'
+          atomic: true
           helm:
+            releaseName: ic-nginx
             valueFiles:
               - $values/apps/nginx/base/values.yaml
               - $values/apps/nginx/clusters/{{cluster}}/values.yaml
