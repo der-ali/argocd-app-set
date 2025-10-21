@@ -18,6 +18,4 @@ spec:
   destination:
     server: https://kubernetes.default.svc
     namespace: ic-nginx
-  syncOptions:
-    - CreateNamespace=true
 
