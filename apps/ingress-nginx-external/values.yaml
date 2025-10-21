@@ -1,6 +1,9 @@
 ---
 controller:
   ingressClass: ingress-nginx-external
+  ingressClassResource:
+    name: ingress-nginx-external
+    enabled: true
   service:
     type: NodePort
     nodePorts:

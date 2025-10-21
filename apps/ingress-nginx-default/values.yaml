@@ -1,6 +1,9 @@
 ---
 controller:
   ingressClass: ingress-nginx-default
+  ingressClassResource:
+    name: ingress-nginx-default
+    enabled: true
   service:
     type: NodePort
     nodePorts:
