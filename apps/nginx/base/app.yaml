@@ -7,7 +7,8 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "15"
 spec:
-  project: test
+  project: ic-nginx
+  namespace: ic-nginx
   sources:
     - repoURL: https://kubernetes.github.io/ingress-nginx
       chart: ingress-nginx
