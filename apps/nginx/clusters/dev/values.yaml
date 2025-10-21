@@ -1,0 +1,8 @@
+---
+controller:
+  config:
+  resources:
+    requests:
+      cpu: "251m"
+      memory: "201Mi"
+

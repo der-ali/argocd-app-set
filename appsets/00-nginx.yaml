@@ -1,0 +1,41 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: ic-nginx
+spec:
+  generators:
+    - list:
+        elements:
+          - cluster: dev-cluster
+            url: https://192.168.101.38:6443
+  template:
+    metadata:
+      name: 'ic-nginx-{{cluster}}'
+    spec:
+      namespace: ic-nginx
+      project: ic-nginx
+      sources:
+        - repoURL: ssh://git@github.com/der-ali/argocd-app-set.git
+          targetRevision: main
+          ref: values
+        - repoURL: https://helm.cilium.io/
+          chart: cilium
+          targetRevision: 1.15.3
+          helm:
+            valueFiles:
+              - $values/apps/nginx/base/values.yaml
+              - $values/apps/nginx/overlays/{{cluster}}/values.yaml
+        # Extra manifests from your internal repo
+        - repoURL: ssh://git@github.com/der-ali/argocd-app-set.git
+          targetRevision: main
+          path: apps/nginx/clusters/{{cluster}}/manifests/
+          directory:
+            recurse: true
+            includeEmpty: true
+      destination:
+        server: '{{url}}'
+        namespace: ic-nginx
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
