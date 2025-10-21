@@ -12,7 +12,6 @@ spec:
     metadata:
       name: 'ic-nginx-{{cluster}}'
     spec:
-      namespace: ic-nginx
       project: ic-nginx
       sources:
         - repoURL: ssh://git@github.com/der-ali/argocd-app-set.git
@@ -36,3 +35,5 @@ spec:
         automated:
           prune: true
           selfHeal: true
+      syncOptions:
+        - CreateNamespace=true
