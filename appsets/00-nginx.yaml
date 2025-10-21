@@ -28,7 +28,7 @@ spec:
         # Extra manifests from your internal repo
         - repoURL: ssh://git@github.com/der-ali/argocd-app-set.git
           targetRevision: main
-          path: apps/nginx/clusters/{{cluster}}/manifests/
+          path: $values/apps/nginx/clusters/{{cluster}}/manifests/
           directory:
             recurse: true
             includeEmpty: true
