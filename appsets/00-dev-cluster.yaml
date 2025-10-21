@@ -18,15 +18,11 @@ spec:
                   chart: ingress-nginx
                   chartVersion: "4.12.4"
                   wave: "10"
-                  valueFile: $values/apps/{{appName}}/values.yaml
-                  valueFileOverride: $values/apps/{{appName}}/clusters/{{cluster}}/values.yaml
                 - appName: ingress-nginx-external
                   repoURL: https://kubernetes.github.io/ingress-nginx
                   chart: ingress-nginx
                   chartVersion: "4.12.4"
                   wave: "10"
-                  valueFile: $values/apps/{{appName}}/values.yaml
-                  valueFileOverride: $values/apps/{{appName}}/clusters/{{cluster}}/values.yaml
   template:
     metadata:
       name: '{{appName}}'
@@ -44,8 +40,8 @@ spec:
           atomic: true
           helm:
             valueFiles:
-              - '{{valueFile}}'
-              - '{{valueFileOverride}}'
+              - $values/apps/{{appName}}/values.yaml
+              - $values/apps/{{appName}}/clusters/{{cluster}}/values.yaml
         # Extra manifests from your internal repo
         - repoURL: ssh://git@github.com/der-ali/argocd-app-set.git
           targetRevision: main
