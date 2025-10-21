@@ -1,0 +1,15 @@
+---
+controller:
+  ingressClass: ingress-nginx-default
+  service:
+    type: NodePort
+    nodePorts:
+      http: 30080
+      https: 30443
+    externalTrafficPolicy: Local
+  config:
+  resources:
+    requests:
+      cpu: "250m"
+      memory: "200Mi"
+
