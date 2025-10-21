@@ -24,7 +24,7 @@ spec:
           helm:
             valueFiles:
               - $values/apps/nginx/base/values.yaml
-              - $values/apps/nginx/overlays/{{cluster}}/values.yaml
+              - $values/apps/nginx/clusters/{{cluster}}/values.yaml
         # Extra manifests from your internal repo
         - repoURL: ssh://git@github.com/der-ali/argocd-app-set.git
           targetRevision: main
