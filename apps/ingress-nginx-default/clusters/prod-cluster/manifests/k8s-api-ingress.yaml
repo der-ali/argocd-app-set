@@ -11,6 +11,7 @@ metadata:
     nginx.ingress.kubernetes.io/proxy-read-timeout: "120000"
     nginx.ingress.kubernetes.io/proxy-send-timeout: "120000"
 spec:
+  ingressClassName: ingress-nginx-default
   rules:
     - host: k8s-api.prod-cluster.example.com
       http:
