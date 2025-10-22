@@ -27,7 +27,7 @@ spec:
                   wave: "10"
   template:
     metadata:
-      name: '{{appName}}'
+      name: '{{appName}}-{{cluster}}'
       annotations:
         argocd.argoproj.io/sync-wave: '{{wave}}'
     spec:
