@@ -41,6 +41,7 @@ spec:
           targetRevision: '{{chartVersion}}'
           atomic: true
           helm:
+            releaseName: '{{appName}}'
             valueFiles:
               - $values/apps/{{appName}}/values.yaml
               - $values/apps/{{appName}}/clusters/{{cluster}}/values.yaml
