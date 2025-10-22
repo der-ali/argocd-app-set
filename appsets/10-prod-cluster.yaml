@@ -39,8 +39,8 @@ spec:
         - repoURL: '{{repoURL}}'
           chart: '{{chart}}'
           targetRevision: '{{chartVersion}}'
-          atomic: true
           helm:
+            atomic: true
             releaseName: '{{appName}}'
             valueFiles:
               - $values/apps/{{appName}}/values.yaml
