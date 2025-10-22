@@ -1,5 +1,8 @@
 ---
 controller:
+  admissionWebhooks:
+    annotations:
+      argocd.argoproj.io/hook: PostSync
   ingressClass: ingress-nginx-external
   ingressClassResource:
     name: ingress-nginx-external

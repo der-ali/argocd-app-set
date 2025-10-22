@@ -23,6 +23,3 @@ spec:
                   number: 443
             path: /
             pathType: Prefix
-  tls:
-    - hosts:
-        - k8s-api-ext.prod-cluster.example.com
