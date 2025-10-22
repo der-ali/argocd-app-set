@@ -3,15 +3,15 @@ kind: ApplicationSet
 metadata:
   name: ic-nginx
   annotations:
-    argocd.argoproj.io/sync-wave: "0"
+    argocd.argoproj.io/sync-wave: "10"
 spec:
   generators:
     - matrix:
         generators:
           - list:
               elements:
-                - cluster: dev-cluster
-                  url: https://192.168.101.240:8443
+                - cluster: prod-cluster
+                  url: https://192.168.101.42:8443
                   chartVersion: 4.12.4
           - list:
               elements:
