@@ -40,7 +40,6 @@ spec:
           chart: '{{chart}}'
           targetRevision: '{{chartVersion}}'
           helm:
-            atomic: true
             releaseName: '{{appName}}'
             valueFiles:
               - $values/apps/{{appName}}/values.yaml
