@@ -33,7 +33,7 @@ spec:
     spec:
       project: ic-nginx
       sources:
-        - repoURL: ssh://git@github.com/der-ali/argocd-app-set.git
+        - repoURL: https://github.com/der-ali/argocd-app-set.git
           targetRevision: main
           ref: values
         - repoURL: '{{repoURL}}'
@@ -45,7 +45,7 @@ spec:
               - $values/apps/{{appName}}/values.yaml
               - $values/apps/{{appName}}/clusters/{{cluster}}/values.yaml
         # Extra manifests from your internal repo
-        - repoURL: ssh://git@github.com/der-ali/argocd-app-set.git
+        - repoURL: https://github.com/der-ali/argocd-app-set.git
           targetRevision: main
           path: apps/{{appName}}/clusters/{{cluster}}/manifests/
       destination:
