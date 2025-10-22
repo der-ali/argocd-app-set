@@ -10,7 +10,7 @@ controller:
   service:
     type: NodePort
     nodePorts:
-      http: 31080
+      http: 31180
       https: 31443
     externalTrafficPolicy: Local
   config:
